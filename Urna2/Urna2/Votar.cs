@@ -188,6 +188,7 @@ namespace Urna2
         {
             //Objeto dto do form Home agora está nesse form.
             urnaDTO = Home.RetCPF();
+
             try
             {
                 votarBLL.confirmarVoto(urnaDTO, votarDTO);
