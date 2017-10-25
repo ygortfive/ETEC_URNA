@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F339BAB-7C0A-4E4D-8153-D0989FFE9AE0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Urna2</RootNamespace>
+    <AssemblyName>Urna2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Estudo\Testes\TestandoConexao\TestandoConexao\conec\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Code\BLL\UrnaBLL.cs" />
+    <Compile Include="Code\BLL\VotarBLL.cs" />
+    <Compile Include="Code\DAL\AcessoBancoDados.cs" />
+    <Compile Include="Code\DTO\UrnaDTO.cs" />
+    <Compile Include="Code\DTO\VotarDTO.cs" />
+    <Compile Include="OFF Forms\[OFF] Adm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OFF Forms\[OFF] Adm.Designer.cs">
+      <DependentUpon>[OFF] Adm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OFF Forms\[OFF]Cadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OFF Forms\[OFF]Cadastro.Designer.cs">
+      <DependentUpon>[OFF]Cadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Urna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Urna.Designer.cs">
+      <DependentUpon>Urna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Votar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Votar.Designer.cs">
+      <DependentUpon>Votar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="OFF Forms\[OFF] Adm.resx">
+      <DependentUpon>[OFF] Adm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OFF Forms\[OFF]Cadastro.resx">
+      <DependentUpon>[OFF]Cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Urna.resx">
+      <DependentUpon>Urna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Votar.resx">
+      <DependentUpon>Votar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoCipa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Free! -Eternal Summer- v1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\Urna_Eletrônica_Confirma.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\Urna_Eletrônica_Corrige.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\Urna_Eletrônica_Branco.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\User_Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

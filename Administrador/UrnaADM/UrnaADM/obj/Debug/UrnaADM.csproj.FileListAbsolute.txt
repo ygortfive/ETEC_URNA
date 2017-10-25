@@ -1,0 +1,12 @@
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\bin\Debug\UrnaADM.exe.config
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\bin\Debug\UrnaADM.exe
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\bin\Debug\UrnaADM.pdb
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\bin\Debug\MySql.Data.dll
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.csprojResolveAssemblyReference.cache
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.CadEleicao.resources
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.formADM.resources
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.Properties.Resources.resources
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.csproj.GenerateResource.Cache
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.csproj.CoreCompileInputs.cache
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.exe
+F:\Ygu\Urna\Administrador\UrnaADM\UrnaADM\obj\Debug\UrnaADM.pdb

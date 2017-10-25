@@ -1,0 +1,14 @@
+F:\Ygu\Urna\Urna2\Urna2\bin\Debug\Urna2.exe.config
+F:\Ygu\Urna\Urna2\Urna2\bin\Debug\Urna2.exe
+F:\Ygu\Urna\Urna2\Urna2\bin\Debug\Urna2.pdb
+F:\Ygu\Urna\Urna2\Urna2\bin\Debug\MySql.Data.dll
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna.csprojResolveAssemblyReference.cache
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Adm.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Cadastro.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Home.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Urna.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Properties.Resources.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.Votar.resources
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna.csproj.GenerateResource.Cache
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.exe
+F:\Ygu\Urna\Urna2\Urna2\obj\Debug\Urna2.pdb
