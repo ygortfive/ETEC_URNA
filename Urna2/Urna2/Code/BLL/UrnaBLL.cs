@@ -33,5 +33,6 @@ namespace Urna2.Code.BLL
 
             return dr.Read();
         }
+
     }
 }

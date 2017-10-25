@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Urna2.Code.DTO;
 using Urna2.Code.BLL;
+using Urna2.Code.DTO;
+using Urna2;
 
 namespace Urna2
 {
     public partial class Votar : Form
     {        
         //Estrutura válida => x = int.Parse(lblNum1.Text + lblNum2.Text);
-        VotarBLL bll = new VotarBLL();
-        VotarDTO dto = new VotarDTO();
+        VotarBLL votarBLL = new VotarBLL();
+        VotarDTO votarDTO = new VotarDTO();
+        //Instanciando Home UrnaDTO para pegar CPF de quem está votando
+        Home Home = new Home();
+        UrnaDTO urnaDTO = new UrnaDTO();
 
         public Votar()
         {
@@ -39,7 +44,7 @@ namespace Urna2
                 lblNum2.Text = "1";
                 //Tendo a segunda label preenchida, vamos fazer aparecer a imagem do candidato.
                 atribuiChapa();             
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);                
             }
         }
 
@@ -53,7 +58,7 @@ namespace Urna2
             {
                 lblNum2.Text = "2";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -67,7 +72,7 @@ namespace Urna2
             {
                 lblNum2.Text = "3";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -81,7 +86,7 @@ namespace Urna2
             {
                 lblNum2.Text = "4";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -95,7 +100,7 @@ namespace Urna2
             {
                 lblNum2.Text = "5";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -109,7 +114,7 @@ namespace Urna2
             {
                 lblNum2.Text = "6";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -123,7 +128,7 @@ namespace Urna2
             {
                 lblNum2.Text = "7";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -137,7 +142,7 @@ namespace Urna2
             {
                 lblNum2.Text = "8";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -151,7 +156,7 @@ namespace Urna2
             {
                 lblNum2.Text = "9";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
@@ -165,15 +170,13 @@ namespace Urna2
             {
                 lblNum2.Text = "0";
                 atribuiChapa();
-                pibCandidato.ImageLocation = bll.RetCandidato(dto);
+                pibCandidato.ImageLocation = votarBLL.RetCandidato(votarDTO);
             }
         }
 
         private void btnCorrige_Click(object sender, EventArgs e)
         {
-            lblNum1.Text = "";
-            lblNum1.Text = "";
-            pibCandidato.ImageLocation = "images/User_Icon.png";
+            limpaCampos();
         }
 
         private void btnBranco_Click(object sender, EventArgs e)
@@ -183,13 +186,40 @@ namespace Urna2
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-
+            //Objeto dto do form Home agora está nesse form.
+            urnaDTO = Home.RetCPF();
+            try
+            {
+                votarBLL.confirmarVoto(urnaDTO, votarDTO);
+                var message = MessageBox.Show("Voto registrado com sucesso. /n Obrigado por votar!", "VOTO REGISTRADO", 
+                                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (message == DialogResult.OK)
+                {
+                    limpaCampos();
+                    this.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro para confirmar seu voto, favor tentar novamente \n Messagem de erro:" + ex.Message, 
+                                "Erro para realizar voto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                limpaCampos();
+            }
         }
 
         //Método para atribuir valores a chapa
         private void atribuiChapa()
         {
-            dto.Chapa = lblNum1.Text + lblNum2.Text;
+            votarDTO.Chapa = lblNum1.Text + lblNum2.Text;
+        }
+
+        //Limpar dados do form
+        private void limpaCampos()
+        {
+            lblNum1.Text = "";
+            lblNum1.Text = "";
+            //Imagem padrão
+            pibCandidato.ImageLocation = "images/User_Icon.png";
         }
         
     }

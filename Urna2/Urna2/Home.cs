@@ -38,6 +38,11 @@ namespace Urna2
             }
         }
 
+        public UrnaDTO RetCPF()
+        {
+            return dto;
+        }
+
 
 
         

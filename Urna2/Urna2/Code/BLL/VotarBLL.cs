@@ -25,9 +25,25 @@ namespace Urna2.Code.BLL
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro para localizar imagem do candidato" + ex.Message);
+                throw new Exception("Erro para localizar imagem do candidato \n" + ex.Message);
             }
             return url;
+        }
+
+        public void confirmarVoto(UrnaDTO urnaDTO, VotarDTO votarDTO)
+        {
+            try
+            {
+                bd = new AcessoBancoDados();
+                bd.Conectar();
+                table = "";
+                comando = "Update " + table + "set votou = " + votarDTO.Chapa + "where cpf = '" + urnaDTO.Cpf + "';";
+                bd.ExecutarComandoSQL(comando);                
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro para confirmar seu voto. \n VOTO NÃO CONTABILIZADO \n" + ex.Message);
+            }
         }
     }
 }
