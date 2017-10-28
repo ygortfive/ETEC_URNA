@@ -36,13 +36,13 @@
             // 
             // mTxtBox
             // 
+            this.mTxtBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt;
             this.mTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mTxtBox.Location = new System.Drawing.Point(256, 16);
             this.mTxtBox.Mask = "00/00/0000";
             this.mTxtBox.Name = "mTxtBox";
             this.mTxtBox.Size = new System.Drawing.Size(71, 22);
             this.mTxtBox.TabIndex = 0;
-            this.mTxtBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mTxtBox.ValidatingType = typeof(System.DateTime);
             // 
             // label1

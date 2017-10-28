@@ -10,6 +10,12 @@ namespace UrnaADM.Code.DTO
     {
         private DateTime data = new DateTime();
 
-        public DateTime Data { get => data; set => data = value; }
+        public DateTime Data
+        {
+            get { return data; }
+            set { data = value; }
+        }
+
+        
     }
 }

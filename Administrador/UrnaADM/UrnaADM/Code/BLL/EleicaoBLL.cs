@@ -22,9 +22,7 @@ namespace UrnaADM.Code.BLL
             {                
                 bd = new AcessoBancoDados();
                 bd.Conectar();
-                table = "";
-                //comandoSQL = "INSERT INTO " + table + " (data) values (str_to_date(" + eleicao.Data.Date + ",'%m/%d/%Y'));";
-                comandoSQL = "Insert into teste_data values ('" + eleicao.Data + "')";
+                comandoSQL = "Insert into Eleicao (data_eleicao) values ('" + eleicao.Data.Year + eleicao.Data.Month + eleicao.Data.Day + "')";
                 bd.ExecutarComandoSQL(comandoSQL);
             }
             catch (Exception ex)
@@ -49,9 +47,10 @@ namespace UrnaADM.Code.BLL
                 //Necessário preencher com a tabela
                 bd = new AcessoBancoDados();
                 bd.Conectar();
-                table = "";
-                comandoSQL = "SELECT id, date_format(data,'%d/%m/%Y') as Data from " + table;
+                table = "Eleicao";
+                comandoSQL = "SELECT id_eleicao as ID, date_format(data_eleicao,'%d/%m/%Y') as Data from " + table;
                 dt = bd.RetDataTable(comandoSQL);
+                return dt;
             }
             catch (Exception ex)
             {
@@ -64,7 +63,6 @@ namespace UrnaADM.Code.BLL
                 table = null;
             }
 
-            return dt;
         }
 
         //Atualizar data da eleição

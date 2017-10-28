@@ -19,7 +19,7 @@ namespace Projeto3Camadas.Code.DAL
         private String server = "localhost";
         private String user = "root";
         private String password = "";
-        private String database = "bd_urna";
+        private String database = "URNA_BD";
 
         //Conecta no banco
         public void Conectar()

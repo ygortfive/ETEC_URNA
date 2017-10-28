@@ -16,6 +16,7 @@ namespace UrnaADM
     {
         EleicaoBLL bll = new EleicaoBLL();
         EleicaoDTO dto = new EleicaoDTO();
+        DateTime dataAtual = DateTime.Now;
 
         public CadEleicao()
         {
@@ -24,17 +25,21 @@ namespace UrnaADM
 
         private void btnCriar_Click(object sender, EventArgs e)
         {
-            //dto.Data = DateTime.Parse(mTxtBox.Text);
-            string str = mTxtBox.Text;
-            dto.Data = DateTime.ParseExact(str, mTxtBox.Text, null);
-
             try
-            {
-                bll.criarEleicao(dto);
-
-               
-                MessageBox.Show("Eleição criada com sucesso, favor voltar ao menu principal para conferir.","Eleição criada", 
+            {                
+                DateTime dt = Convert.ToDateTime(mTxtBox.Text);
+                if (dt.Date > dataAtual.Date)
+                {
+                    dto.Data = dt;
+                    bll.criarEleicao(dto);
+                    MessageBox.Show("Eleição criada com sucesso, favor voltar ao menu principal para conferir.", "Eleição criada",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose(); 
+                }
+                else
+                {
+                    MessageBox.Show("Data não permitida, favor corrigir", "DATA INVALIDA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -47,5 +52,6 @@ namespace UrnaADM
             mTxtBox.Clear();
             mTxtBox.Focus();
         }
+
     }
 }

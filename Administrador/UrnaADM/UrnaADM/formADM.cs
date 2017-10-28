@@ -30,17 +30,18 @@ namespace UrnaADM
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             CadEleicao eleicao = new CadEleicao();
-            eleicao.Show();
+            eleicao.ShowDialog();
+            AtualizaGrid();
         }
 
         private void formADM_Load(object sender, EventArgs e)
         {
-            //AtualizaGrid();
+            AtualizaGrid();
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            //AtualizarGrid();
+            AtualizaGrid();
         }
 
         private void dgvEleicoes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,11 +59,16 @@ namespace UrnaADM
             }
             else
             {
-                bll.AlterarData(grvId, grvData);
-                MessageBox.Show("Data alterada com sucesso.", "Alteração de data", MessageBoxButtons.OK
-                                , MessageBoxIcon.Information);
-                AtualizaGrid();
-                limparDados();
+                var message = MessageBox.Show("ID: " + grvId + "/n Data: " + grvData.Date.ToString() + "/n Gostaria de alterar essa eleição?","Confirmação de alteração",
+                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (message == DialogResult.Yes)
+                {
+                    bll.AlterarData(grvId, grvData);
+                    MessageBox.Show("Data alterada com sucesso.", "Alteração de data", MessageBoxButtons.OK
+                                    , MessageBoxIcon.Information);
+                    AtualizaGrid();
+                    limparDados();
+                }
             }
         }
 
