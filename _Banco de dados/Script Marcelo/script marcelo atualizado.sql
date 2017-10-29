@@ -12,14 +12,15 @@ senha VARCHAR(20) not null);
 CREATE TABLE Eleitor (
 id_eleitor INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(100) not null,
-cpf VARCHAR(11)not null,
+cpf VARCHAR(11) not null,
 turma_cargo VARCHAR(30),
-candidato VARCHAR(100),
-votou bool);
+candidato bool
+);
 
 CREATE TABLE Eleicao (
 id_eleicao INT PRIMARY KEY AUTO_INCREMENT,
-data_eleicao date);
+data_eleicao date,
+eleicao_valida bool not null);
 
 CREATE TABLE Candidato_Eleicao (
 id_eleicao INT,
@@ -41,5 +42,8 @@ PRIMARY KEY (id_eleicao, id_eleitor),
 CONSTRAINT id_eleicao_fk FOREIGN KEY (id_eleicao) REFERENCES Eleicao(id_eleicao),
 CONSTRAINT id_eleitor_fk FOREIGN KEY (id_eleitor) REFERENCES Eleitor(id_eleitor));
 
-select * from eleicao;
+select count(id_eleitor) from eleitor;
+select count(votou) from Eleitor_Eleicao;
+
+select count(escolha)
 

@@ -20,6 +20,7 @@ namespace UrnaADM
         public formADM()
         {
             InitializeComponent();
+            btnExcluir.Enabled = false;
         }
 
         private void AtualizaGrid()
@@ -59,7 +60,7 @@ namespace UrnaADM
             }
             else
             {
-                var message = MessageBox.Show("ID: " + grvId + "/n Data: " + grvData.Date.ToString() + "/n Gostaria de alterar essa eleição?","Confirmação de alteração",
+                var message = MessageBox.Show("ID: " + grvId + "\n Data: " + grvData.Date + "\n Gostaria de alterar essa eleição?","Confirmação de alteração",
                                                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (message == DialogResult.Yes)
                 {
@@ -81,7 +82,7 @@ namespace UrnaADM
             }
             else
             {
-                var message = MessageBox.Show("Realmente deseja excluir essa eleição?", "Exclusão de eleição",
+                var message = MessageBox.Show("ID: " + grvId + "\n Data: " + grvData.Date.ToString() + "\n Realmente deseja excluir essa eleição?", "Exclusão de eleição",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if(message == DialogResult.Yes)
                 {
@@ -96,6 +97,27 @@ namespace UrnaADM
         private void limparDados()
         {
             grvId = null;            
+        }
+
+        private void btnEncerrar_Click(object sender, EventArgs e)
+        {
+            if (grvId == "" || grvData.Equals(""))
+            {
+                MessageBox.Show("Selecione uma eleição para ser encerrada", "Falha no encerramento da eleição",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                var message = MessageBox.Show("ID: " + grvId + "\n Data: " + grvData.Date.ToString() + "\n Realmente deseja encerrar essa eleição?", "Exclusão de eleição",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (message == DialogResult.Yes)
+                {
+                    if (bll.EncerrarEleicao(bll.RetEleitores(), bll.RetVotos(), grvId))
+                    {
+
+                    }
+                }
+            }
         }
     }
 }

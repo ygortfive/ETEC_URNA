@@ -36,6 +36,7 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnEncerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEleicoes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,11 +121,22 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // btnEncerrar
+            // 
+            this.btnEncerrar.Location = new System.Drawing.Point(107, 320);
+            this.btnEncerrar.Name = "btnEncerrar";
+            this.btnEncerrar.Size = new System.Drawing.Size(89, 29);
+            this.btnEncerrar.TabIndex = 8;
+            this.btnEncerrar.Text = "E&ncerar eleição";
+            this.btnEncerrar.UseVisualStyleBackColor = true;
+            this.btnEncerrar.Click += new System.EventHandler(this.btnEncerrar_Click);
+            // 
             // formADM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 361);
+            this.Controls.Add(this.btnEncerrar);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.btnAlterar);
@@ -152,6 +164,7 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnEncerrar;
     }
 }
 
